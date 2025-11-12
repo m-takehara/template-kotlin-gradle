@@ -19,3 +19,10 @@ build/
 # IntelliJ
 .idea/
 *.iml
+
+# Eclipse
+.classpath
+.project
+
+# VS Code
+.vscode/

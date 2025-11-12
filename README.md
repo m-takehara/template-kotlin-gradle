@@ -1,8 +1,19 @@
-# Template Java Gradle
+# Template Kotlin Gradle
 
-A template project for using the [Gauge](https://docs.gauge.org/) test framework with Gradle and Java.
+A template project for using the [Gauge](https://docs.gauge.org/) test framework with Gradle and Kotlin.
 
-### Verified Environment
+## Usage
+
+```bash
+gauge init <archive>.zip
+./gradlew gauge
+```
+
+### Important: Update Package Configuration
+
+If you change the package name from the default `com.example`, update `package_to_scan` in `env/default/kotlin.properties`.
+
+## Verified Environment
 
 ```bash
 $ java --version
@@ -37,18 +48,4 @@ Commit Hash: 7d3f2cf
 Plugins
 -------
 java (1.0.1)
-```
-
-## Usage
-
-### Initialize Project from Template (TBD)
-
-```bash
-gauge init <archive>.zip
-```
-
-### Run Tests
-
-```bash
-./gradlew gauge
 ```
