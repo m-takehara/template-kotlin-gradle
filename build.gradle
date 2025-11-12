@@ -6,14 +6,32 @@ plugins {
 group 'Gradle_example'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation 'com.thoughtworks.gauge:gauge-java:0.7.15'
-    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.20.2'
+    implementation 'com.thoughtworks.gauge:gauge-java:0.13.0'
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.26.3'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.11.4'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.11.4'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.11.4'
+}
+
+task gaugeTest(type: Exec) {
+    group = 'verification'
+    description = 'Runs Gauge specifications'
+    dependsOn 'testClasses'
+    commandLine 'gauge', 'run', 'specs'
+    environment 'CLASSPATH', sourceSets.test.runtimeClasspath.asPath
+}
+
+test {
+    useJUnitPlatform()
 }
