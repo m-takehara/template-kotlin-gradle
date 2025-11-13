@@ -26,12 +26,12 @@ jobs:
               ignored+="! -name $i "
           done
           files=$(find $(pwd) -maxdepth 1 $ignored)
-          mkdir java_gradle
-          cp -r $files ./java_gradle
-          zip -r java_gradle.zip ./java_gradle;
-          openssl sha256 java_gradle.zip | cut -d " " -f2 > java_gradle.zip.sha256
+          mkdir kotlin_gradle
+          cp -r $files ./kotlin_gradle
+          zip -r kotlin_gradle.zip ./kotlin_gradle;
+          openssl sha256 kotlin_gradle.zip | cut -d " " -f2 > kotlin_gradle.zip.sha256
           version=$(jq -r ".version" metadata.json)
-          gh release create "v$version" java_gradle.zip java_gradle.zip.sha256 --title "v$version" --notes "Release v$version"
+          gh release create "v$version" kotlin_gradle.zip kotlin_gradle.zip.sha256 --title "v$version" --notes "Release v$version"
       - name: setup git
         run: |
           git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"

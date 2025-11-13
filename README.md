@@ -48,4 +48,5 @@ Commit Hash: 7d3f2cf
 Plugins
 -------
 java (1.0.1)
+html-report (4.3.6)
 ```
