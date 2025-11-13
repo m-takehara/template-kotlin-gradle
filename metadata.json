@@ -1,7 +1,7 @@
 {
   "name": "kotlin_gradle",
   "description": "Gauge template for Kotlin plugin with Gradle as Build tool",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "postInstallCmd": "./gradlew clean build",
   "postInstallMsg": "Run specifications with \"./gradlew gauge\" in project root."
 }
